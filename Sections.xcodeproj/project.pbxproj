@@ -21,6 +21,7 @@
 		3FD9235F184D72F600691FB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD92341184D72F600691FB5 /* UIKit.framework */; };
 		3FD92367184D72F600691FB5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FD92365184D72F600691FB5 /* InfoPlist.strings */; };
 		3FD92369184D72F600691FB5 /* SectionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD92368184D72F600691FB5 /* SectionsTests.m */; };
+		3FD92373184D742400691FB5 /* sortednames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FD92372184D742400691FB5 /* sortednames.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		3FD92364184D72F600691FB5 /* SectionsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SectionsTests-Info.plist"; sourceTree = "<group>"; };
 		3FD92366184D72F600691FB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3FD92368184D72F600691FB5 /* SectionsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectionsTests.m; sourceTree = "<group>"; };
+		3FD92372184D742400691FB5 /* sortednames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sortednames.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 		3FD92344184D72F600691FB5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3FD92372184D742400691FB5 /* sortednames.plist */,
 				3FD92345184D72F600691FB5 /* Sections-Info.plist */,
 				3FD92346184D72F600691FB5 /* InfoPlist.strings */,
 				3FD92349184D72F600691FB5 /* main.m */,
@@ -228,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FD92373184D742400691FB5 /* sortednames.plist in Resources */,
 				3FD92356184D72F600691FB5 /* Images.xcassets in Resources */,
 				3FD92348184D72F600691FB5 /* InfoPlist.strings in Resources */,
 				3FD92351184D72F600691FB5 /* Main.storyboard in Resources */,
@@ -382,6 +386,7 @@
 				GCC_PREFIX_HEADER = "Sections/Sections-Prefix.pch";
 				INFOPLIST_FILE = "Sections/Sections-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -395,6 +400,7 @@
 				GCC_PREFIX_HEADER = "Sections/Sections-Prefix.pch";
 				INFOPLIST_FILE = "Sections/Sections-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
