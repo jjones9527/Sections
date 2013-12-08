@@ -28,6 +28,7 @@
     self.names = allNamesCopy;
     //[allNamesCopy release];
     NSMutableArray *keyArray = [[NSMutableArray alloc] init];
+    [keyArray addObject:UITableViewIndexSearch];
     [keyArray addObjectsFromArray:[[self.allNames allKeys]sortedArrayUsingSelector:@selector(compare:)]];
     self.keys = keyArray;
     //[keyArray release];
@@ -135,12 +136,29 @@
     if ([keys count] == 0)
         return nil;
     NSString *key = [keys objectAtIndex:section];
+    if (key == UITableViewIndexSearch)
+        return nil;
     return key;
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
+    if (isSearching)
+        return nil;
+    
     return keys;
+}
+
+#pragma mark -
+#pragma mark Table View Delegate Methods
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [search resignFirstResponder];
+    isSearching = NO;
+    search.text = @"";
+    [tableView reloadData];
+    return indexPath;
 }
 
 #pragma mark -
@@ -164,10 +182,28 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
 {
+    isSearching = NO;
     search.text = @"";
     [self resetSearch];
     [table reloadData];
     [searchBar resignFirstResponder];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    isSearching = YES;
+    [table reloadData];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    NSString *key = [keys objectAtIndex:index];
+    if (key == UITableViewIndexSearch)
+    {
+        [tableView setContentOffset:CGPointZero animated:NO];
+        return NSNotFound;
+    }
+    else return index;
 }
 
 @end

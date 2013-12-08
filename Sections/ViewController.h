@@ -18,6 +18,8 @@
     NSMutableArray *keys;
     //NSDictionary *names;
     //NSArray *keys;
+    
+    BOOL isSearching;
 }
 
 //@property (nonatomic, retain) NSDictionary *names;
