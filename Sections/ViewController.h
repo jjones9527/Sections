@@ -9,13 +9,27 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-<UITableViewDataSource, UITableViewDelegate>
+<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 {
-    NSDictionary *names;
-    NSArray *keys;
+    UITableView *table;
+    UISearchBar *search;
+    NSDictionary *allNames;
+    NSMutableDictionary *names;
+    NSMutableArray *keys;
+    //NSDictionary *names;
+    //NSArray *keys;
 }
 
-@property (nonatomic, retain) NSDictionary *names;
-@property (nonatomic, retain) NSArray *keys;
+//@property (nonatomic, retain) NSDictionary *names;
+//@property (nonatomic, retain) NSArray *keys;
+
+@property (nonatomic, retain)IBOutlet UITableView *table;
+@property (nonatomic, retain)IBOutlet UISearchBar *search;
+@property (nonatomic, retain)NSDictionary *allNames;
+@property (nonatomic, retain)NSMutableDictionary *names;
+@property (nonatomic, retain)NSMutableArray *keys;
+
+- (void)resetSearch;
+- (void)handleSearchForTerm:(NSString *)searchTerm;
 
 @end
